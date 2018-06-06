@@ -1,0 +1,176 @@
+s<html>
+<head>
+    <title>Google Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<br><br><br>
+<h1 style="text-align: center; color: rgb(52, 117, 238);">Google Calculator</h1>
+    <div id="main">
+        <table>
+            <tr><td>
+                <input type="text" id="field" onfocus="    " onkeyup="validate(this);">
+            </td></tr>
+            <tr>
+                <td>
+                    <button class="btn">Deg</button>
+                    <button class="btn">Rad</button>
+                    <button class="btn" onclick="factFun()">x!</button>
+                    <button class="btn" onclick="document.getElementById('field').value += '('">(</button>
+                    <button class="btn" onclick="document.getElementById('field').value += ')'">)</button>
+                    <button class="btn" onclick="document.getElementById('field').value += '%'">%</button>
+                    <button class="btn" onclick="document.getElementById('field').value = ''">AC</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn">Inv</button>
+                    <button class="btn" onclick="sinFun()">sin</button>
+                    <button class="btn" onclick="lnFun()">ln</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '7'">7</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '8'">8</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '9'">9</button>
+                    <button class="btn" onclick="document.getElementById('field').value += '/'">÷</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn"onclick="document.getElementById('field').value += Math.PI.toFixed(3);">⺎</button>
+                    <button class="btn" onclick="cosFun()">cos</button>
+                    <button class="btn" onclick="logFun()">log</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '4'">4</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '5'">5</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '6'">6</button>
+                    <button class="btn" onclick="document.getElementById('field').value += '*'">×</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn" onclick="document.getElementById('field'.value += Math.E())">e</button>
+                    <button class="btn" onclick="tanFun()">tan</button>
+                    <button class="btn" onclick="sqrtFun()">√</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '1'">1</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '2'">2</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '3'">3</button>
+                    <button class="btn" onclick="document.getElementById('field').value += '-'">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn">Ans</button>
+                    <button class="btn">EXP</button>
+                    <button class="btn" onclick="document.getElementById('field').value += '**'">xʸ</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '0'">0</button>
+                    <button class="btn btn-digi" onclick="document.getElementById('field').value += '.'">.</button>
+                    <button class="btn btn-equl" onclick="document.getElementById('field').value = eval(document.getElementById('field').value);"><b>=</b></button> 
+                    <button class="btn" onclick="document.getElementById('field').value += '+'">+</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function validate(input) {
+            
+            var re = /[a-z]/gi;
+            input.value = input.value.replace(re,"");
+
+        }
+
+        function cosFun() {
+            var value = document.getElementById('field').value;
+            var vary = /^[+-]?\d+(\.\d+)?$/.test(value);
+            if(vary === true) {
+                
+                document.getElementById('field').value = Math.cos(value);
+               
+            }
+            else {
+                alert('Please enter a valid number!!');
+               
+            }
+        }
+        function sinFun() {
+            var value = document.getElementById('field').value;
+            var vary = /^[+-]?\d+(\.\d+)?$/.test(value);
+            if(vary === true) {
+                
+                document.getElementById('field').value = Math.sin(value);
+               
+            }
+            else {
+                alert('Please enter a valid number!!');
+               
+            }
+        }
+        function tanFun() {
+            var value = document.getElementById('field').value;
+            var vary = /^[+-]?\d+(\.\d+)?$/.test(value);
+            if(vary === true) {
+                
+                document.getElementById('field').value = Math.tan(value);
+               
+            }
+            else {
+                alert('Please enter a valid number!!');
+               
+            }
+        }
+        function lnFun() {
+            var value = document.getElementById('field').value;
+            var vary = /^[+-]?\d+(\.\d+)?$/.test(value);
+            if(vary === true) {
+                
+                document.getElementById('field').value = Math.log(value);
+               
+            }
+            else {
+                alert('Please enter a valid number!!');
+               
+            }
+        }
+        function logFun() {
+            var value = document.getElementById('field').value;
+            var vary = /^[+-]?\d+(\.\d+)?$/.test(value);
+            if(vary === true) {
+                
+                document.getElementById('field').value = Math.log10(value);
+               
+            }
+            else {
+                alert('Please enter a valid number!!');
+               
+            }
+        }
+        function sqrtFun() {
+            var value = document.getElementById('field').value;
+            var vary = /^[+-]?\d+(\.\d+)?$/.test(value);
+            if(vary === true) {
+                
+                document.getElementById('field').value = Math.sqrt(value);
+               
+            }
+            else {
+                alert('Please enter a valid number!!');
+               
+            }
+        }
+        function factFun() {
+        var value = document.getElementById('field').value; 
+        var vary = /^\d+$/.test(value);
+        if (vary === true) { 
+        var factorial = 1;
+        for(i = 1;i <= value;i++) {
+        factorial = factorial * i;
+        }
+        document.getElementById('field').value = factorial;
+        }
+        else {
+                alert('Please enter a valid number!!');
+               
+            }
+        
+        }
+    </script>
+</body>
+</html>
